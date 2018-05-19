@@ -19,7 +19,6 @@ view.post（new Runnable（）{
  View.setText（“更新textView”）;
 }
 }）;
-}
 
 
 同时查看还有一个方法view.postDelayed（Runnable action，long delayMillis）;用来延迟发送
