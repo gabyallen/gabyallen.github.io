@@ -20,7 +20,9 @@ view.post（new Runnable（）{
 }
 }）;
 }
-##同时查看还有一个方法view.postDelayed（Runnable action，long delayMillis）;用来延迟发送
+
+
+同时查看还有一个方法view.postDelayed（Runnable action，long delayMillis）;用来延迟发送
 >方法二：activity.runOnUiThread（Runnable action）;
 假如该方法在子线程中
 注意：context对象要是主线程中的MainActivity，这样强转才可以。
