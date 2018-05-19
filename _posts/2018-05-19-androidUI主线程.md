@@ -19,7 +19,7 @@ view.post（new Runnable（）{
  View.setText（“更新textView”）;
 }
 }）;
-同时查看还有一个方法view.postDelayed（Runnable action，long delayMillis）;用来延迟发送
+##同时查看还有一个方法view.postDelayed（Runnable action，long delayMillis）;用来延迟发送
 >方法二：activity.runOnUiThread（Runnable action）;
 假如该方法在子线程中
 注意：context对象要是主线程中的MainActivity，这样强转才可以。
@@ -32,7 +32,7 @@ view.post（new Runnable（）{
 }）;
 }
     
-如果没有上下文（context），试试下面的方法： 
+##如果没有上下文（context），试试下面的方法： 
 1.用view.getContext（）可以得到上下文。 
 2.跳过上下文直接用new Activity（）。runOnUiThread（Runnable action）来切换到主线程。
 >方法三：处理程序机制
