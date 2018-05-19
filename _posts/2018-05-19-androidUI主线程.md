@@ -10,9 +10,9 @@ tags:                               #标签
     - ANDROID
 ---
 
-#创建android快速切换到主线程更新UI的几种方法
+##创建android快速切换到主线程更新UI的几种方法
 看过很多网上的信息，相信大家都对在子线程中切换到主线程中掌握了一定知识;我这边再来总结一下;以便可以帮助到大家
-##方法一：view.post（Runnable action）;
+>方法一：view.post（Runnable action）;
 view.post（new Runnable（）{
  @Override
  public void run（）{
@@ -20,7 +20,7 @@ view.post（new Runnable（）{
 }
 }）;
 同时查看还有一个方法view.postDelayed（Runnable action，long delayMillis）;用来延迟发送
-##方法二：activity.runOnUiThread（Runnable action）;
+>方法二：activity.runOnUiThread（Runnable action）;
 假如该方法在子线程中
 注意：context对象要是主线程中的MainActivity，这样强转才可以。
  public void UIupdate（final Context context）{
@@ -35,7 +35,7 @@ view.post（new Runnable（）{
 如果没有上下文（context），试试下面的方法： 
 1.用view.getContext（）可以得到上下文。 
 2.跳过上下文直接用new Activity（）。runOnUiThread（Runnable action）来切换到主线程。
-##方法三：处理程序机制
+>方法三：处理程序机制
 首先在主线程中定义Handler，Handler mainHandler = new Handler（）;
 （必须要在主线程中定义才能操作主线程，如果想在其他地方定义声明时要这样写Handler mainHandler = new Handler（Looper.getMainLooper（）），
 来获取主线程的Looper和Queue）
@@ -119,7 +119,7 @@ sendMessageAtTime(Message msg, long uptimeMillis); //定时发送消息
 sendMessageDelayed(Message msg, long delayMillis); //延时发送消息
 sendMessageAtFrontOfQueue(Message msg); //最先处理消息（慎用）
 
-##方法四： 使用AsyncTask
+>方法四： 使用AsyncTask
 /**
   * 该类中方法的执行顺序依次为：onPreExecute, doInBackground, onPostExecute
   */
