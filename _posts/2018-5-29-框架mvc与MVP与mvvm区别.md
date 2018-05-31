@@ -24,7 +24,7 @@ C层：是桥梁，指的是Activity,在Android中，Activity处理用户交互�
 
 ## MVC使用总结
 
- img/post_mvc.jpg
+ ![](https://user-gold-cdn.xitu.io/2016/11/29/703e89ff78dce6b7f0db10cbcee55729.jpg?imageslim)
 
 利用MVC设计模式，使得这个天气预报小项目有了很好的可扩展和维护性，当需要改变UI显示的时候，无需修改Contronller（控制器）Activity的代码和Model（模型）WeatherModel模型中的业务逻辑代码，很好的将业务逻辑和界面显示分离。
 
@@ -45,9 +45,9 @@ MVC的优点：
 <https://blog.csdn.net/feiduclear_up/article/details/46363207/>
 源码下载：<https://github.com/gabyallen/Mydialog/>
 
-##MVP概念
+## MVP概念
 
- img/post-mvp.jpg
+ ![](https://user-gold-cdn.xitu.io/2016/11/29/d3306ab199e685acea781ca951f6d361.jpg?imageslim)
 
 其实Mvp与mvc区别就是c与p的区别，因为他们联系
 Presenter 替换掉了Controller，不仅仅处理逻辑部分。而且还控制着View的刷新，监听Model层的数据变化。这样隔离掉View和Model的关系后使得View层变的非常的薄，没有任何的逻辑部分又不用主动监听数据，被称之为“被动视图”。
@@ -56,9 +56,9 @@ Presenter 替换掉了Controller，不仅仅处理逻辑部分。而且还控制
 
 我个人认为如果绑定适配器后就是使用Mvc模式，使用容器来加载数据就是MVP模式；我觉得这就是他们之间的交互差别。
 
-##MVVM概念
+## MVVM概念
 
- img/post-mvvm.jpg
+ ![](https://user-gold-cdn.xitu.io/2016/11/29/a2a194610e76aa6573bc39816dfb1935.jpg?imageslim)
 
 至于MVVM基本上和MVP一模一样，感觉只是名字替换了一下。他的关键技术就是今天的主题(Data Binding)。View的变化可以自动的反应在ViewModel，ViewModel的数据变化也会自动反应到View上。这样开发者就不用处理接收事件和View更新的工作，框架已经帮你做好了。
 
