@@ -61,14 +61,14 @@ timezone: Asia/Shanghai
 
 # 评论系统
 # Disqus settings（https://disqus.com/）
-  disqus_username: gaby7879
+#  disqus_username: gaby7879
 
-comments :
-  provider : disqus
-  duoshuo :
-    short_name : gaby7879
-  disqus :
-      short_name : wangchuanwen
+#comments :
+#  provider : disqus
+#  duoshuo :
+#    short_name : gaby7879
+#  disqus :
+#      short_name : wangchuanwen
 
 
 # Gitalk
