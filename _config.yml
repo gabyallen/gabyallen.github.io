@@ -59,7 +59,7 @@ timezone: Asia/Shanghai
 
 # 评论系统
 # Disqus（https://disqus.com/）
-disqus_username: disqus_ihcuQMQoSy
+#disqus_username: disqus_ihcuQMQoSy
 comments :
   provider : disqus
   duoshuo :
