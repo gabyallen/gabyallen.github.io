@@ -58,14 +58,14 @@ kramdown:
 timezone: Asia/Shanghai
 
 # 评论系统
-# Disqus（https://disqus.com/）
-#disqus_username: disqus_ihcuQMQoSy
-comments :
-  provider : disqus
-  duoshuo :
-    short_name : disqus_ihcuQMQoSy
-  disqus :
-      short_name : disqus_ihcuQMQoSy
+ Disqus settings（https://disqus.com/）
+disqus_username: disqus_ihcuQMQoSy
+#comments :
+#  provider : disqus
+#  duoshuo :
+#    short_name : disqus_ihcuQMQoSy
+#  disqus :
+#      short_name : disqus_ihcuQMQoSy
 
 # Gitalk
 #gitalk:
