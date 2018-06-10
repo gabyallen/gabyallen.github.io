@@ -57,17 +57,18 @@ kramdown:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone: Asia/Shanghai
 
-comments :
-  provider : disqus
-  duoshuo :
-    short_name : disqus_ihcuQMQoSy
-  disqus :
-      short_name : disqus_ihcuQMQoSy
+
 
 # 评论系统
 # Disqus settings（https://disqus.com/）
-disqus_username: disqus_ihcuQMQoSy
+disqus_username: gaby7879
 
+comments :
+  provider : disqus
+  duoshuo :
+    short_name : gaby7879
+  disqus :
+      short_name : wangchuanwen
 
 
  Gitalk
