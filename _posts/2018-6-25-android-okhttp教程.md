@@ -39,7 +39,7 @@ Okttp API：
 <!--[](https://github.com/square/okhttp/wiki/Recipes)-->
 
 
-##下载Okttp
+## 下载Okttp
 
 1.通过Maven获取
 <dependency>
@@ -55,7 +55,7 @@ compile 'com.squareup.okhttp3:okhttp:3.10.0'
 
 添加上述依赖会自动下载两个库，一个是Okhht库，一个是Okio库，后者是前者的通信基础。
 
-##核心类
+## 核心类
 
 我们在使用okhttp进行开发的时候，主要牵扯到以下几个核心类：OkHttpClient，Request,Call,和Response
 
@@ -67,7 +67,7 @@ OkhttpClient表示了Http请求的客户端类，在绝大多数的app中，我�
   *可以配置OkhttpClient 的一些参数，比如超时时间、缓存目录、代理、Authenticator等，那么就需要用到内部类OkHttpClient.Builder,设置如下所示：
   
   
-###OkHttpClient client = new OkHttpClient.Builder().
+ OkHttpClient client = new OkHttpClient.Builder().
         readTimeout(30, TimeUnit.SECONDS).
         cache(cache).
         proxy(proxy).
@@ -100,7 +100,7 @@ Call代表了一个实际的Http请求，它是连接Request和Response的桥梁
   Response类封装了响应报文信息：状态码（200、404等）、响应头（Content-Type、Server等）以及可选的响应体。可以通过Call对象的execute（）方法获得Response对象，异步回调执行Callback对象的onResponse方法时也可以获取Response对象。
   
   
-##同步GET
+## 同步GET
 以下示例了如何同步发送GET请求，输出响应头以及将响应体转换为字符串。
 
 private final OkHttpClient client = new OkHttpClient();
@@ -138,7 +138,7 @@ public void run() throws Exception {
 
 *通过Response对象的body()方法可以得到响应体ResponseBody对象，调用其string()方法可以很方便地将响应体中的数据转换为字符串，该方法会将所有的数据放入到内存之中，所以如果数据超过1M，最好不要调用string()方法以避免占用过多内存，这种情况下可以考虑将数据当做Stream流处理。
 
-##异步GET
+## 异步GET
 
 下面示例演示了如何异步发送GET网络请求，代码如下所示：
 
@@ -200,7 +200,7 @@ private final OkHttpClient client = new OkHttpClient();
 上面的代码通过addHeader方法添加了两个Accept请求头
 且二者的值不同，这样服务器收到客户端发来的请求后，就知道客户端即支持application/json类型的数据，也支持application/vnd.github.v3+json类型的数据。
 
-##用POST发送String
+## 用POST发送String
 
 可以使用Post方法发送请求体。下面的示例演示了如何将markdown文本作为请求体发送到服务器，服务器会将其转换成html文档，并发送给客户端。
 
@@ -299,7 +299,7 @@ mime: <http://www.w3school.com.cn/media/media_mimeref.asp/>
   
   *覆写writeTo方法，该方法会传入一个OKia的BufferedSink类型的对象，可以通过BufferedSink的各种write方法向其写入各种类型的数据，此例中用其writeUTF8方法向其中写入UTF-8的文本数据。也可以通过它的outputStream（）方法，得到输出流OutputStream，从而通过OutputSteram向BufferedSink写入数据。
   
-##用POST发送File
+## 用POST发送File
 下面的代码演示了如何用POST发送文件。
 
   public static final MediaType MEDIA_TYPE_MARKDOWN
@@ -323,7 +323,7 @@ mime: <http://www.w3school.com.cn/media/media_mimeref.asp/>
   
 我们之前提到，RequestBody.create()静态方法可以接收File参数，将File转换成请求体，将其传递给post()方法。
   
-##用POST发送Form表单中的键值对
+## 用POST发送Form表单中的键值对
 如果想用POST发送键值对字符串，可以使用在post（）方法中传入FormBody对象，FormBody继承自RequestBody，类似于Web前端中的Form表单。可以通过FromBody.Builder构建FromBody.
 
   private final OkHttpClient client = new OkHttpClient();
@@ -345,7 +345,7 @@ mime: <http://www.w3school.com.cn/media/media_mimeref.asp/>
   
   需要注意的是，在发送数据之前，android会对非ASCLL码字符调用encodeURIComponent方法进行编码，例如”Jurassic Park”会编码成”Jurassic%20Park”，其中的空格符被编码成%20了，服务器端会其自动解码。
 
-##用POST发送multipart数据
+##  用POST发送multipart数据
 我们可以通过WEB前端的Form表单上传一个或多个文件，OKhttp也提供了对应的功能，如果我们想同时发送多个From表单形式的文件，就可以使用在post（）方法中传入multipartBody对象。MultipartBody对象。MultipartBody继承自RequestBody，也表示请求体。只不过MultipartBody的内部是由多个part组成的，每个part就单独包含了一个RequestBody请求体，所以可以把MultipartBody看成是一个RequestBody的数组，而且可以分别给每个RequestBody单独设置请求头。
 
 示例代码如下所示：
@@ -386,7 +386,7 @@ MultipartBody要通过其内部类MultipartBody.Builder进行构建。
 
 MultipartBody.Builder还提供了三个重载的addPart方法，其中通过addPart(Headers headers, RequestBody body)方法可以在添加RequestBody的时候，同时为其单独设置请求头。
 
-##用Gson处理JSON响应
+##  用Gson处理JSON响应
 
 Gson是Google开源的一个用于进行JSON处理的JAVA库，通过Gson可以很方面地在JSON和jAVA对象之间进行转换。我们可以将OKhttp和Gson一起使用，用Gson解析返回的Json结果。
 
@@ -430,7 +430,7 @@ Gson是Google开源的一个用于进行JSON处理的JAVA库，通过Gson可以�
 charStream：
 <http://square.github.io/okhttp/3.x/okhttp/okhttp3/ResponseBody.html#charStream--/>
 
-##缓存响应结果
+## 缓存响应结果
 
 如果想缓存响应结果，我们就需要为Okthhp配置缓存目录，Oktthp可以写入和读取该缓存目录，并且我们需要限制该缓存目录的大小。Okhttp的缓存目录应该是私有化的，不能被其他应用访问。
 
@@ -489,7 +489,7 @@ Okhttp中，多个缓存示例同时访问同一个缓存目录会出错，大�
 
 *如果想让某次请求禁用缓存，可以调用request.cacheControl(CacheControl.FORCE_NETWORK)方法，这样即便缓存目录有对应的缓存，也会忽略缓存，强制发送网络请求，这对于获取最新的响应结果很有用。如果想强制某次请求使用缓存的结果，可以调用request.cacheControl(CacheControl.FORCE_CACHE)，这样不会发送实际的网络请求，而是读取缓存，即便缓存数据过期了，也会强制使用该缓存作为响应数据，如果缓存不存在，那么就返回504 Unsatisfiable Request错误。也可以向请求中中加入类似于Cache-Control: max-stale=3600之类的请求头，Okhttp也会使用该配置对缓存进行处理。
 
-##取消请求
+## 取消请求
 当请求不再需要的时候，我们应该中止请求，比如退出当前的Activity了，那么在Activity中发出的请求应该被中止，可以通过调用Call的cancel方法立即中止请求，如果线程正在写入Request或读取Response，那么会抛出IOException异常。同步请求和异步请求都可以被取消。
 
  private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
@@ -525,7 +525,7 @@ Okhttp中，多个缓存示例同时访问同一个缓存目录会出错，大�
 
 上述请求，服务器端会有两秒的延时，在客户端发出请求1秒之后，请求还未完成，这时候通过cancel方法中止了Call，请求中断，并触发IOException异常。
 
-##设置超时
+##  设置超时
 
 一次HTTP请求实际上可以分为三步：
 1.客户端与服务器建立连接
@@ -561,7 +561,7 @@ Okhttp中，多个缓存示例同时访问同一个缓存目录会出错，大�
   
   如果HTTP请求的某一部分超时了，那么就会触发异常。
 
-##处理身份验证
+##  处理身份验证
 有些网络请求是需要用户名密码登录的，如果没提供登录需要的信息，那么会得到401 Not Authorized未授权的错误，这时候Okhttp会自动查找是否配置了Authenticator，如果配置过Authenticator，会用Authenticator中包含的登录相关的信息构建一个新的Request，尝试再次发送HTTP请求。
 
   private final OkHttpClient client;
@@ -605,7 +605,7 @@ if (credential.equals(response.request().header("Authorization"))) {
 }
 
 
-##ResponseBody
+##  ResponseBody
 通过Response的body（）方法可以得到响应体ResponseBody，响应体必须最终要被关闭，否则会导致资源泄露、app运行变慢甚至崩溃。
 
 ResponseBody和Response都实现了Closeable和AutoCloseable接口，它们都有close()方法，Response的close()方法内部直接调用了ResponseBody的close()方法，无论是同步调用execute()还是异步回调onResponse()，最终都需要关闭响应体，可以通过如下方法关闭响应体：
