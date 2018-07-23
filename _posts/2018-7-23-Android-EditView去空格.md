@@ -19,23 +19,24 @@ tags:                               #标签
 
 如下：
 
-public static void inputFilterSpace(final EditText edit){
+      public static void inputFilterSpace(final EditText edit){
       
       edit.setFilters(new InputFilter[]
         
                             {
                                             new InputFilter.LengthFilter(16),
                                                new InputFilter(){    
-                                                   public CharSequence filter(CharSequence src, int start, int end, Spanned dst, int dstart, int dend) {   
+                                                   public CharSequence filter(CharSequence src, int start, int end, Spanned dst, 
+                                                   int        dstart, int dend) {   
                      
                                                       
                                                       if(src.length()<1) {
          
          return null;
      
-     }else
+       }else
 
-{
+      {
     
     char temp [] = (src.toString()).toCharArray();
     
@@ -47,8 +48,7 @@ public static void inputFilterSpace(final EditText edit){
                                                             
                                                             continue;
  
- }else{
-  
+       }else{
                                 result[j++] = temp[i];
                                       
                                       }
@@ -70,7 +70,8 @@ public static void inputFilterSpace(final EditText edit){
 
 ### 我看了上面的代码后封装了一个方法；可以随时调用：
 
-public  String inputFilterSpace(String card){
+
+       public  String inputFilterSpace(String card){
 
           char temp [] = (card.toString()).toCharArray();
           
