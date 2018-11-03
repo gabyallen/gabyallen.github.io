@@ -42,9 +42,9 @@ androidManifest文件中含有如下过滤器的Activity组件为默认启动类
 
 你的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件（如当电话呼入时，或者数据网络可用时）进行接收并作出响应。广播接收器没有用户界面。然而，它们可以启动一个activity或者serice来响应它们收到的信息，或用noticationManager通知可以用很多种方式来吸引用户的注意力-背光灯，震动，图标等
 
-####  广播类型：
+####  无序广播：
 
-普通广播，通过Context.sendBroadcast(Intent myIntent)发送的。
+普通广播,也称为无序广播，通过Context.sendBroadcast(Intent myIntent)发送的或mContext.sendBroadcast(Intent, String)发送的是无序广播(后者加了权限)。
 
 #### 有序广播:
 
@@ -66,9 +66,12 @@ Context.sendOrderedBroadcast(intent, receiverPermission)发送的，该方法第
 2. 注册该广播接收者，注册有两种方法程序动态注册和AndroidManifestwen文件中进行静态注册如下：
  静态注册，注册的广播，下面的priority表示接收广播的级别“2147483647” 为最高优先级
 <receiver android:name=".SMSBroadcastReceiver" >　<intent-filter android:priority = "2147483647" >　　 <action android:name="android.provider.Telephony.SMS_RECEIVED" /></intent-filter></receiver >
+静态注册：广播是常驻的，App关闭后仍能接收广播，唤醒App；
 动态注册，
 
 一般在Activity可交互时onResume()内注册BroadcastReceiver     IntentFilter intentFilter=new IntentFilter("android.provider.Telephony.SMS_RECEIVED");registerReceiver(mBatteryInfoReceiver ,intentFilter);
+动态注册和注销：动态注册的广播生命周期和他的宿主相同，或者调用注销方法注销广播
+
 
 //反注册：unregisterReceiver(receiver);
 
