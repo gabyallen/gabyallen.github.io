@@ -112,7 +112,7 @@ service-worker: true
 friends: [
     {
         title: "WY",
-        href: "http://zhengwuyang.com"
+        href: "https://gabyallen.github.io/"
     },{
         title: "简书·BY",
         href: "http://www.jianshu.com/u/e71990ada2fd"
